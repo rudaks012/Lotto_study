@@ -57,4 +57,13 @@ public class StringCalculatorTest {
         assertActual(actual, expected);
     }
 
+
+    @Test
+    @DisplayName("계산기에 음수가 들어오면 예외가 발생한다.")
+    void throw_exception_negative_number_insert() {
+        assertThatThrownBy(() -> calculator.calculator("-1,2,3"))
+                .isInstanceOf(RuntimeException.class)
+                .hasMessage("음수를 허용하지 않습니다.");
+    }
+
 }
