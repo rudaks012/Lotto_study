@@ -47,4 +47,14 @@ public class StringCalculatorTest {
         int expected = 6;
         assertActual(actual, expected);
     }
+
+
+    @Test
+    @DisplayName("계산기의 커스텀 구분자는 문자열 앞 부분의 //와 /n 사이에 위치한다.")
+    void calculator_custom_separator() {
+        int actual = calculator.calculator("//;\n1;2;3");
+        int expected = 6;
+        assertActual(actual, expected);
+    }
+
 }
