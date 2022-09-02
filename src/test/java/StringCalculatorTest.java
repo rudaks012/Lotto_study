@@ -32,4 +32,12 @@ public class StringCalculatorTest {
         assertActual(actual, expected);
     }
 
+    @Test
+    @DisplayName("계산기는 쉼표 구분자로 덧셈 된다. ")
+    void calculator_comma_delimiters_plus() {
+        int actual = calculator.calculator("1,2");
+        int expected = 3;
+        assertActual(actual, expected);
+    }
+
 }
