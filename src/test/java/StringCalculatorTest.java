@@ -40,4 +40,11 @@ public class StringCalculatorTest {
         assertActual(actual, expected);
     }
 
+    @Test
+    @DisplayName("계산기는 쉼표 또는 콜론으로 구분되며 이에 따라 덧셈 된다.")
+    void calculator_comma_or_colons_delimiters_plus() {
+        int actual = calculator.calculator("1,2:3");
+        int expected = 6;
+        assertActual(actual, expected);
+    }
 }
