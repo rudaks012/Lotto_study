@@ -13,6 +13,7 @@ public class StringPlusCalculator {
         }
 
         String[] strings = separatorSplit(input);
+
         int sum = 0;
         int toNumber = 0;
         for (String string : strings) {
@@ -20,9 +21,7 @@ public class StringPlusCalculator {
             numberValidation(toNumber);
             sum += toNumber;
         }
-
         return sum;
-
     }
 
     private static void numberValidation(int toNumber) {
