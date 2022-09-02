@@ -23,4 +23,13 @@ public class StringCalculatorTest {
         actual = calculator.calculator(null);
         assertActual(actual, expected);
     }
+
+    @Test
+    @DisplayName("계산기의 입력값이 숫자하나만 들어온다")
+    void calculator_insert_only_one_number() {
+        int actual = calculator.calculator("1");
+        int expected = 1;
+        assertActual(actual, expected);
+    }
+
 }
