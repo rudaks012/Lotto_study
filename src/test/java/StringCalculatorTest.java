@@ -10,7 +10,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class StringCalculatorTest {
     private final StringPlusCalculator calculator = new StringPlusCalculator();
-
     private int actual;
     private int excepted;
 
@@ -94,5 +93,4 @@ public class StringCalculatorTest {
     private static void assertActual(int actual, int excepted) {
         assertThat(actual).isEqualTo(excepted);
     }
-
 }
