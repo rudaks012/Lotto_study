@@ -22,6 +22,7 @@ public class StringCalculatorTest {
     @DisplayName("계산기 입력값에 숫자하나만 입력이 될 경우")
     void calculator_only_one_number() {
         int result = calculator.splitAndSum("1");
+
         assertThat(result).isEqualTo(1);
     }
 
@@ -29,6 +30,7 @@ public class StringCalculatorTest {
     @DisplayName("계산기 입력값에 쉼표구분자로 덧셈 한다")
     void calculator_comma_separator_sum() {
         int actual = calculator.splitAndSum("1,2");
+
         assertThat(actual).isEqualTo(3);
     }
 
@@ -36,6 +38,15 @@ public class StringCalculatorTest {
     @DisplayName("계산기 입력값에 쉼표 또는 콜론 구분자로 덧셈한다")
     void calculator_comma_or_colon_separator_sum() {
         int actual = calculator.splitAndSum("1,2:3");
+
+        assertThat(actual).isEqualTo(6);
+    }
+
+    @Test
+    @DisplayName("계산기 입력 값에 커스텀 구분자로 덧셈한다")
+    void calculator_custom_separator_insert_is_sum() {
+        int actual = calculator.splitAndSum("//;\n1;2;3");
+
         assertThat(actual).isEqualTo(6);
     }
 
