@@ -17,4 +17,19 @@ public class StringCalculatorTest {
         result = calculator.splitAndSum("");
         assertThat(result).isEqualTo(0);
     }
+
+    @Test
+    @DisplayName("계산기 입력값에 숫자하나만 입력이 될 경우")
+    void calculator_only_one_number() {
+        int result = calculator.splitAndSum("1");
+        assertThat(result).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("계산기 입력값에 쉼표구분자로 덧셈 한다")
+    void calculator_comma_separator_sum() {
+        int actual = calculator.splitAndSum("1,2");
+        assertThat(actual).isEqualTo(3);
+    }
+
 }
