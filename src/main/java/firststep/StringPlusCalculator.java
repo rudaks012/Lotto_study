@@ -1,16 +1,16 @@
 package firststep;
 
 import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class StringPlusCalculator {
 
     public static final String DELIMITER = "[,|:]";
-    public static final Pattern PATTERN = Pattern.compile("//(.)\\n(.*)");
-    public static final int FIRST_INDEX = 1;
-    public static final int SECOND_INDEX = 2;
+
+//    public static final Pattern PATTERN = Pattern.compile("//(.)\\n(.*)");
+//    public static final int FIRST_INDEX = 1;
+//    public static final int SECOND_INDEX = 2;
     public static final int ZERO = 0;
+//    public static final String CUSTOM_DELIMITER = "//(.)\n(.*)";ß
 
     public int splitAndSum(String input) {
         if (input == null || input.isEmpty()) {
@@ -22,14 +22,24 @@ public class StringPlusCalculator {
     }
 
     private String[] splitString(String input) {
-        Matcher matcher = PATTERN.matcher(input);
 
-        if (!matcher.find()) {
-            return input.split(DELIMITER);
+        if (input.startsWith("//")) {
+            String[] separatedStrings = new String[0];
+            for (int i = 0; i < input.length(); i++) {
+                String customDelimiter = input.substring(2, 3);
+                String substringInput = input.substring(4);
+                separatedStrings = substringInput.split(customDelimiter);
+            }
+            return separatedStrings;
         }
-
-        String delimiter = matcher.group(FIRST_INDEX);
-        return matcher.group(SECOND_INDEX).split(delimiter);
+        return input.split(DELIMITER);
+//        Matcher matcher = PATTERN.matcher(input);
+//        if (!matcher.find()) {
+//            return input.split(DELIMITER);
+//        }
+//
+//        String delimiter = matcher.group(FIRST_INDEX);
+//        return matcher.group(SECOND_INDEX).split(delimiter);
     }
 
     private static int getSum(String[] splitStrings) {
@@ -41,16 +51,14 @@ public class StringPlusCalculator {
     private static int StringChangeNumber(String input) {
         int StringToNumber = Integer.parseInt(input);
 
-        negativeVerification(StringToNumber);
+        negativeNumberFormula(StringToNumber);
 
         return StringToNumber;
     }
 
-    private static void negativeVerification(int number) {
-        if (number < 0) {
+    private static void negativeNumberFormula(int targetNumber) {
+        if (targetNumber < ZERO) {
             throw new RuntimeException("음수가 발생하면 안됩니다");
         }
     }
-
-
 }
