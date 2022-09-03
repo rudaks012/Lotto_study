@@ -63,11 +63,15 @@ public class StringCalculatorTest {
         assertActual(actual, excepted);
     }
 
-
-    @Test
     @DisplayName("계산기 입력 값에 커스텀 구분자로 덧셈한다")
-    void calculator_custom_separator_insert_is_sum() {
-        actual = calculator.splitAndSum("//;\n1;2;3");
+    @ParameterizedTest(name = "계산기 입력 값에 커스텀 구분자로 덧셈한다 : [{index}] : [{arguments}]")
+    @ValueSource(strings = {
+            "//;\n1;2;3",
+            "//-\n1-2-3",
+            "//#\n1#2#3"
+    })
+    void calculator_custom_separator_insert_is_sum(String input) {
+        actual = calculator.splitAndSum(input);
 
         excepted = 6;
 
