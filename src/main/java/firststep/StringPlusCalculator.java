@@ -9,17 +9,26 @@ public class StringPlusCalculator {
     public static final String DELIMITER = "[,|:]";
     public static final Pattern PATTERN = Pattern.compile("//(.)\\n(.*)");
     public static final int FIRST_INDEX = 1;
-    public static final int SECOUND_INDEX = 2;
+    public static final int SECOND_INDEX = 2;
+    public static final int ZERO = 0;
 
     public int splitAndSum(String input) {
         if (input == null || input.isEmpty()) {
-            return 0;
+            return ZERO;
         }
         String[] splitStrings = splitString(input);
 
         return Arrays.stream(splitStrings)
-                .mapToInt(Integer::parseInt)
+                .mapToInt(StringPlusCalculator::StringChangeNumber)
                 .sum();
+    }
+
+    private static int StringChangeNumber(String input) {
+        int number = Integer.parseInt(input);
+        if (number < 0) {
+            throw new RuntimeException("음수가 발생하면 안됩니다");
+        }
+        return number;
     }
 
     private String[] splitString(String input) {
@@ -30,6 +39,6 @@ public class StringPlusCalculator {
         }
 
         String delimiter = matcher.group(FIRST_INDEX);
-        return matcher.group(SECOUND_INDEX).split(delimiter);
+        return matcher.group(SECOND_INDEX).split(delimiter);
     }
 }

@@ -49,5 +49,11 @@ public class StringCalculatorTest {
 
         assertThat(actual).isEqualTo(6);
     }
-
+    @Test
+    @DisplayName("음수가 입력되면 예외가 발생한다")
+    void throw_exception_native_number_insert() {
+        assertThatThrownBy(()->calculator.splitAndSum("-1,2,3"))
+                .isInstanceOf(RuntimeException.class)
+                .hasMessage("음수가 발생하면 안됩니다");
+    }
 }
