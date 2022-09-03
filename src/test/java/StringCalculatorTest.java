@@ -11,6 +11,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class StringCalculatorTest {
     private final StringPlusCalculator calculator = new StringPlusCalculator();
 
+    @DisplayName("계산기 입력값에 null 또는 음수가 들어오면 0을 반환한다")
     @ParameterizedTest(name = "계산기 입력값에 null 또는 음수가 들어오면 0을 반환한다")
     @NullAndEmptySource
     void calculator_insert_null_or_empty_return_zero(String input) {
@@ -26,18 +27,26 @@ public class StringCalculatorTest {
         assertThat(result).isEqualTo(1);
     }
 
-    @Test
-    @DisplayName("계산기 입력값에 쉼표구분자로 덧셈 한다")
-    void calculator_comma_separator_sum() {
-        int actual = calculator.splitAndSum("1,2");
+    @DisplayName("계산기 입력값은 쉼표 구분자로 나뉘고 더해진다")
+    @ParameterizedTest(name = "계산기 입력값은 쉼표 구분자로 나뉘고 더해진다 : [{index}] : [{arguments}]")
+    @ValueSource(strings = {
+            "1,2",
+            "2,1"
+    })
+    void calculator_comma_separator_sum(String input) {
+        int actual = calculator.splitAndSum(input);
 
         assertThat(actual).isEqualTo(3);
     }
 
-    @Test
-    @DisplayName("계산기 입력값에 쉼표 또는 콜론 구분자로 덧셈한다")
-    void calculator_comma_or_colon_separator_sum() {
-        int actual = calculator.splitAndSum("1,2:3");
+    @DisplayName("계산기 입력값은 콤마 또는 콜론으로 구분된다.")
+    @ParameterizedTest(name = "계산기 입력값은 콤마 또는 콜론으로 구분된다.: [{index}] : [{arguments}]")
+    @ValueSource(strings = {
+            "1,2:3",
+            "1:2,3"
+    })
+    void calculator_comma_or_colon_separator_sum(String input) {
+        int actual = calculator.splitAndSum(input);
 
         assertThat(actual).isEqualTo(6);
     }
@@ -51,6 +60,7 @@ public class StringCalculatorTest {
     }
 
     @ParameterizedTest(name = "음수가 입력되면 예외가 발생한다.")
+    @DisplayName("음수가 입력되면 예외가 발생한다.")
     @ValueSource(strings = {
             "-1,2,3",
             "3,-4,5",
