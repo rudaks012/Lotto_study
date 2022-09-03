@@ -7,6 +7,6 @@ public class stringCalculator {
         StringPlusCalculator calculator = new StringPlusCalculator();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("input = " + calculator.calculator(scanner.nextLine()));
+//        System.out.println("input = " + calculator.calculator(scanner.nextLine()));
     }
 }
