@@ -1,20 +1,20 @@
 import firststep.StringPlusCalculator;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.NullAndEmptySource;
+import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class StringCalculatorTest {
     private final StringPlusCalculator calculator = new StringPlusCalculator();
 
-    @Test
-    @DisplayName("계산기 입력값에 null 또는 빈 값이 들어오면 0을 반환한다")
-    void calculator_insert_null_or_empty_return_zero() {
-        int result = calculator.splitAndSum(null);
-        assertThat(result).isEqualTo(0);
-
-        result = calculator.splitAndSum("");
+    @ParameterizedTest(name = "계산기 입력값에 null 또는 음수가 들어오면 0을 반환한다")
+    @NullAndEmptySource
+    void calculator_insert_null_or_empty_return_zero(String input) {
+        int result = calculator.splitAndSum(input);
         assertThat(result).isEqualTo(0);
     }
 
@@ -49,11 +49,18 @@ public class StringCalculatorTest {
 
         assertThat(actual).isEqualTo(6);
     }
-    @Test
-    @DisplayName("음수가 입력되면 예외가 발생한다")
+
+    @ParameterizedTest(name = "음수가 입력되면 예외가 발생한다.")
+    @ValueSource(strings = {
+            "-1,2,3",
+            "3,-4,5",
+            "6,7,-8"
+    })
     void throw_exception_native_number_insert() {
-        assertThatThrownBy(()->calculator.splitAndSum("-1,2,3"))
+        assertThatThrownBy(() -> calculator.splitAndSum("-1,2,3"))
                 .isInstanceOf(RuntimeException.class)
                 .hasMessage("음수가 발생하면 안됩니다");
     }
+
+
 }
