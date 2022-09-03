@@ -8,6 +8,8 @@ public class StringPlusCalculator {
 
     public static final String DELIMITER = "[,|:]";
     public static final Pattern PATTERN = Pattern.compile("//(.)\\n(.*)");
+    public static final int FIRST_INDEX = 1;
+    public static final int SECOUND_INDEX = 2;
 
     public int splitAndSum(String input) {
         if (input == null || input.isEmpty()) {
@@ -27,7 +29,7 @@ public class StringPlusCalculator {
             return input.split(DELIMITER);
         }
 
-        String delimiter = matcher.group(1);
-        return matcher.group(2).split(delimiter);
+        String delimiter = matcher.group(FIRST_INDEX);
+        return matcher.group(SECOUND_INDEX).split(delimiter);
     }
 }
