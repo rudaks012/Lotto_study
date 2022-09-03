@@ -18,17 +18,7 @@ public class StringPlusCalculator {
         }
         String[] splitStrings = splitString(input);
 
-        return Arrays.stream(splitStrings)
-                .mapToInt(StringPlusCalculator::StringChangeNumber)
-                .sum();
-    }
-
-    private static int StringChangeNumber(String input) {
-        int number = Integer.parseInt(input);
-        if (number < 0) {
-            throw new RuntimeException("음수가 발생하면 안됩니다");
-        }
-        return number;
+        return getSum(splitStrings);
     }
 
     private String[] splitString(String input) {
@@ -41,4 +31,26 @@ public class StringPlusCalculator {
         String delimiter = matcher.group(FIRST_INDEX);
         return matcher.group(SECOND_INDEX).split(delimiter);
     }
+
+    private static int getSum(String[] splitStrings) {
+        return Arrays.stream(splitStrings)
+                .mapToInt(StringPlusCalculator::StringChangeNumber)
+                .sum();
+    }
+
+    private static int StringChangeNumber(String input) {
+        int StringToNumber = Integer.parseInt(input);
+
+        negativeVerification(StringToNumber);
+
+        return StringToNumber;
+    }
+
+    private static void negativeVerification(int number) {
+        if (number < 0) {
+            throw new RuntimeException("음수가 발생하면 안됩니다");
+        }
+    }
+
+
 }
