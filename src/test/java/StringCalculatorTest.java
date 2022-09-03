@@ -32,4 +32,11 @@ public class StringCalculatorTest {
         assertThat(actual).isEqualTo(3);
     }
 
+    @Test
+    @DisplayName("계산기 입력값에 쉼표 또는 콜론 구분자로 덧셈한다")
+    void calculator_comma_or_colon_separator_sum() {
+        int actual = calculator.splitAndSum("1,2:3");
+        assertThat(actual).isEqualTo(6);
+    }
+
 }
