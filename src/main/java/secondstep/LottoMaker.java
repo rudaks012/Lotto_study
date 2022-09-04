@@ -10,9 +10,9 @@ public class LottoMaker {
     public static final int LOTTO_MAX_NUMBER = 45;
     public static final int LOTTO_FIRST_NUMBER = 0;
     public static final int LOTTO_LAST_NUMBER = 6;
+    public static final List<List<Integer>> lottoMaker = new ArrayList<>();
 
     public List<List<Integer>> lottoNumberGeneration(int totalBuyQuantity) {
-        List<List<Integer>> lottoMaker = new ArrayList<>();
         for (int i = 1; i <= totalBuyQuantity; i++) {
             List<Integer> lottoNumberList = getLottoNumberList();
             Collections.shuffle(lottoNumberList);

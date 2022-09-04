@@ -15,12 +15,13 @@ public class InputView {
     public static final String EXCEPTION_THOUSAND_INSERT = "천원 단위로 입력 해야 합니다.";
 
 
-    public void lottoGameStart() {
+    public List<List<Integer>> lottoGameStart() {
         LottoMaker lottoMaker = new LottoMaker();
         int amount = getAmount();
         int totalBuyQuantity = getTotalBuyQuantity(amount);
         printTotalBuyQuantity(totalBuyQuantity);
-        List<List<Integer>> lottoMakers = lottoMaker.lottoNumberGeneration(totalBuyQuantity);
+
+        return lottoMaker.lottoNumberGeneration(totalBuyQuantity);
     }
 
     private int getAmount() {
