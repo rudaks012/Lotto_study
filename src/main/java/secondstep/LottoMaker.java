@@ -18,7 +18,7 @@ public class LottoMaker {
             Collections.shuffle(lottoNumberList);
             lottoMaker.add(lottoNumberList.subList(LOTTO_FIRST_NUMBER, LOTTO_LAST_NUMBER));
         }
-        printLottoNumbers(lottoMaker);
+        printLottoNumbers();
         return lottoMaker;
     }
 
@@ -34,8 +34,8 @@ public class LottoMaker {
         }
     }
 
-    private void printLottoNumbers(List<List<Integer>> lottoMaker) {
-        for (List<Integer> printLottoNumbers : lottoMaker) {
+    private void printLottoNumbers() {
+        for (List<Integer> printLottoNumbers : LottoMaker.lottoMaker) {
             System.out.println(printLottoNumbers);
         }
     }

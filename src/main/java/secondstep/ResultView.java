@@ -1,7 +1,6 @@
 package secondstep;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.Scanner;
 
 public class ResultView {
@@ -10,7 +9,6 @@ public class ResultView {
 
     public int[] resultViewStart() {
         String[] winnerNumbers = printLastWeekWinningNumber();
-        printPrizeStatistics();
         return getLastWeekWinnerNumbers(winnerNumbers);
     }
 
@@ -22,13 +20,4 @@ public class ResultView {
     private static int[] getLastWeekWinnerNumbers(String[] winnerNumbers) {
         return Arrays.stream(winnerNumbers).mapToInt(Integer::parseInt).toArray();
     }
-
-    private void printPrizeStatistics() {
-        WinnerLotto winnerLotto = new WinnerLotto();
-        Map<String, Integer> prizeStatistics = winnerLotto.winnerLottoGame();
-
-        System.out.println("prizeStatistics.get(\"threeMatch\") = " + prizeStatistics.get("threeMatch"));
-    }
-
-
 }
