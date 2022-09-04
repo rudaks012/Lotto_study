@@ -11,6 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class ResultViewTest {
+
     @ParameterizedTest(name = "당첨번호 입력값을 숫자로 치환한다. :[{index}] : [{arguments}]")
     @DisplayName("당첨번호 입력값을 숫자로 치환한다.")
     @MethodSource

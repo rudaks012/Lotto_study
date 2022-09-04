@@ -15,7 +15,7 @@ public class ResultView {
     }
 
     public void lastWeekWinnerNumberValidation(String[] winnerNumbers) {
-        if(winnerNumbers.length < 7) {
+        if (winnerNumbers.length < 7) {
             throw new IllegalArgumentException(LAST_WEEK_WINNER_NUMBER_VALIDATION_MESSAGE);
         }
     }
