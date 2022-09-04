@@ -7,7 +7,6 @@ public class WinnerLotto {
     public static final int LOTTO_NUMBER_FOUR_MATCH = 4;
     public static final int LOTTO_NUMBER_FIVE_MATCH = 5;
     public static final int LOTTO_NUMBER_SIX_MATCH = 6;
-
     private static final int FIRST_REWARD = 2000000000;
     private static final int SECOND_REWARD = 1500000;
     private static final int THIRD_REWARD = 50000;
@@ -21,18 +20,18 @@ public class WinnerLotto {
 
     public void winnerLottoGame() {
         InputView inputView = new InputView();
+        ResultView resultView = new ResultView();
 
         amount = inputView.getAmount();
-
         List<List<Integer>> userLottoNumbers = inputView.lottoGameStart(amount);
-        ResultView resultView = new ResultView();
+
         int[] winnerLottoNumbers = resultView.resultViewStart();
 
         lottoWinnerCount(userLottoNumbers, winnerLottoNumbers);
         printLottoStatistics();
     }
 
-    private void lottoWinnerCount(List<List<Integer>> userLottoNumbers, int[] winnerLottoNumbers) {
+    public void lottoWinnerCount(List<List<Integer>> userLottoNumbers, int[] winnerLottoNumbers) {
         for (List<Integer> userLottoNumber : userLottoNumbers) {
             int count = 0;
             count = getCount(winnerLottoNumbers, userLottoNumber, count);
@@ -41,7 +40,7 @@ public class WinnerLotto {
     }
 
 
-    private static int getCount(int[] winnerLottoNumbers, List<Integer> userLottoNumber, int count) {
+    public int getCount(int[] winnerLottoNumbers, List<Integer> userLottoNumber, int count) {
         for (int i = 0; i < 6; i++) {
             if (userLottoNumber.contains(winnerLottoNumbers[i])) {
                 count++;
