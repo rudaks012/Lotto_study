@@ -18,6 +18,7 @@ public class InputViewTest {
     })
     void throw_exception_lotto_buy_cost_less_thousand(int lottoBuyMoney) {
         InputView inputView = new InputView();
+
         assertThatThrownBy(() -> inputView.amountExceptionValidation(lottoBuyMoney))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("돈이 천원 보다 작습니다.");
@@ -32,6 +33,7 @@ public class InputViewTest {
     })
     void you_must_enter_in_thousands_of_won(int lottoBuyMoney) {
         InputView inputView = new InputView();
+
         assertThatThrownBy(() -> inputView.amountExceptionMustThousand(lottoBuyMoney))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("천원 단위로 ");

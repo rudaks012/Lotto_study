@@ -17,6 +17,7 @@ public class ResultViewTest {
     void winner_number_input_value_replaced_a_number(String winnerNumber, int[] expected) {
         ResultView resultView = new ResultView();
         String[] winnerNumbers = winnerNumber.split(",");
+
         int[] actual = resultView.getLastWeekWinnerNumbers(winnerNumbers);
 
         assertThat(actual).isEqualTo(expected);
@@ -33,6 +34,7 @@ public class ResultViewTest {
     @DisplayName("지난 주 당첨 번호가 6개를 넘어서면 예외가 발생한다")
     void throw_exception_list_week_winner_number_more_six() {
         ResultView resultView = new ResultView();
+
         assertThatThrownBy(() -> resultView.lastWeekWinnerNumberValidation(new String[6]))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("지난 주 당첨 번호는 6개 입니다.");

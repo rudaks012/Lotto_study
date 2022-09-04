@@ -28,18 +28,22 @@ public class WinnerLotto {
         ResultView resultView = new ResultView();
         int[] winnerLottoNumbers = resultView.resultViewStart();
 
+        lottoWinnerCount(userLottoNumbers, winnerLottoNumbers);
+        printLottoStatistics();
+    }
+
+    private void lottoWinnerCount(List<List<Integer>> userLottoNumbers, int[] winnerLottoNumbers) {
         for (List<Integer> userLottoNumber : userLottoNumbers) {
             int count = 0;
             count = getCount(winnerLottoNumbers, userLottoNumber, count);
             prizeStatistics(count);
         }
-        printLottoStatistics();
     }
 
 
     private static int getCount(int[] winnerLottoNumbers, List<Integer> userLottoNumber, int count) {
-        for (int j = 0; j < 6; j++) {
-            if (userLottoNumber.contains(winnerLottoNumbers[j])) {
+        for (int i = 0; i < 6; i++) {
+            if (userLottoNumber.contains(winnerLottoNumbers[i])) {
                 count++;
             }
         }
