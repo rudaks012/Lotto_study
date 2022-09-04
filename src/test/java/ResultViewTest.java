@@ -1,22 +1,17 @@
-import org.assertj.core.api.AbstractStringAssert;
-import org.assertj.core.api.AbstractThrowableAssert;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 import secondstep.ResultView;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class ResultViewTest {
-    @ParameterizedTest
+    @ParameterizedTest(name = "당첨번호 입력값을 숫자로 치환한다. :[{index}] : [{arguments}]")
     @DisplayName("당첨번호 입력값을 숫자로 치환한다.")
     @MethodSource
     void winner_number_input_value_replaced_a_number(String winnerNumber, int[] expected) {

@@ -65,8 +65,11 @@ public class WinnerLotto {
         System.out.println("4개 일치 (50000원)-" + fourMatch + "개");
         System.out.println("5개 일치 (1500000원)-" + fiveMatch + "개");
         System.out.println("6개 일치 (200000000원)-" + sixMatch + "개");
-
-        double result = ((sixMatch * FIRST_REWARD) + (fiveMatch * SECOND_REWARD) + (fourMatch * THIRD_REWARD) + (threeMatch * FORTH_REWARD)) / amount;
+        double result = getResult();
         System.out.println("총 수익률은 : " + result + "입니다.");
+    }
+
+    public double getResult() {
+        return ((sixMatch * FIRST_REWARD) + (fiveMatch * SECOND_REWARD) + (fourMatch * THIRD_REWARD) + (threeMatch * FORTH_REWARD)) / amount;
     }
 }
