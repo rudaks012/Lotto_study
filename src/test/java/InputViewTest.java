@@ -9,6 +9,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class InputViewTest {
 
+    private InputView inputView = new InputView();
+
     @ParameterizedTest(name = "로또 구매비용이 천원보다 작으면 예외가 발생한다. : [{index}] : [arguments]")
     @DisplayName("로또 구매비용이 천원보다 작으면 예외가 발생한다.")
     @ValueSource(ints = {
@@ -17,8 +19,6 @@ public class InputViewTest {
             900
     })
     void throw_exception_lotto_buy_cost_less_thousand(int lottoBuyMoney) {
-        InputView inputView = new InputView();
-
         assertThatThrownBy(() -> inputView.amountExceptionValidation(lottoBuyMoney))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("돈이 천원 보다 작습니다.");
@@ -32,8 +32,6 @@ public class InputViewTest {
             4400
     })
     void you_must_enter_in_thousands_of_won(int lottoBuyMoney) {
-        InputView inputView = new InputView();
-
         assertThatThrownBy(() -> inputView.amountExceptionMustThousand(lottoBuyMoney))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("천원 단위로 ");
@@ -47,8 +45,6 @@ public class InputViewTest {
             "2000, 2",
     })
     void lotto_ticket_is_thousands_won(int lottoBuyMoney, int excepted) {
-        InputView inputView = new InputView();
-
         int actual = inputView.amountToQuantity(lottoBuyMoney);
 
         assertThat(actual).isEqualTo(excepted);
