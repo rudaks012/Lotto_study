@@ -7,6 +7,7 @@ public class WinnerLotto {
     public static final int LOTTO_NUMBER_FOUR_MATCH = 4;
     public static final int LOTTO_NUMBER_FIVE_MATCH = 5;
     public static final int LOTTO_NUMBER_SIX_MATCH = 6;
+
     private static final int FIRST_REWARD = 2000000000;
     private static final int SECOND_REWARD = 1500000;
     private static final int THIRD_REWARD = 50000;
