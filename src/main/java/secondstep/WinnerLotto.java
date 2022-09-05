@@ -7,14 +7,15 @@ public class WinnerLotto {
     public static final int LOTTO_NUMBER_FOUR_MATCH = 4;
     public static final int LOTTO_NUMBER_FIVE_MATCH = 5;
     public static final int LOTTO_NUMBER_SIX_MATCH = 6;
-    private static final int FIRST_REWARD = 2000000000;
-    private static final int SECOND_REWARD = 1500000;
-    private static final int THIRD_REWARD = 50000;
-    private static final int FORTH_REWARD = 5000;
-    private static int threeMatch;
-    private static int fourMatch;
-    private static int fiveMatch;
-    private static int sixMatch;
+
+    private static final int FIRST_REWARD = 2_000_000_000;
+    private static final int SECOND_REWARD = 1_500_000;
+    private static final int THIRD_REWARD = 50_000;
+    private static final int FORTH_REWARD = 5_000;
+    private int threeMatch;
+    private int fourMatch;
+    private int fiveMatch;
+    private int sixMatch;
 
     private int amount;
 
