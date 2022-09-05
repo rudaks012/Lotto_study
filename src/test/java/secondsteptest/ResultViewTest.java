@@ -1,3 +1,5 @@
+package secondsteptest;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -26,8 +28,8 @@ public class ResultViewTest {
 
     private static Stream<Arguments> winner_number_input_value_replaced_a_number() {
         return Stream.of(
-                Arguments.of("1,2,3", new int[]{1, 2, 3}),
-                Arguments.of("3,4,5", new int[]{3, 4, 5})
+                Arguments.of("1,2,3,4,5,6", new int[]{1, 2, 3, 4, 5, 6}),
+                Arguments.of("3,4,5,6,7,8", new int[]{3, 4, 5, 6, 7, 8})
         );
     }
 
