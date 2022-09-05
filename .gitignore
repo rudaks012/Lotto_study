@@ -31,3 +31,5 @@ out/
 
 ### VS Code ###
 .vscode/
+/src/main/java/yongju/
+/src/test/java/yongju/
