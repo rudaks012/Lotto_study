@@ -50,6 +50,7 @@ public class StringPlusCalculator {
 
     private static int StringChangeNumber(String input) {
         int StringToNumber = Integer.parseInt(input);
+        int StringToNu1mber = Integer.parseInt(input);
 
         negativeNumberFormula(StringToNumber);
 
