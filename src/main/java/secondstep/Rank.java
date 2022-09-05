@@ -1,2 +1,3 @@
-package secondstep;public enum Rank {
+package secondstep;
+public enum Rank {
 }
