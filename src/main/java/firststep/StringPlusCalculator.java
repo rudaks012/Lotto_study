@@ -18,7 +18,7 @@ public class StringPlusCalculator {
         }
         String[] splitStrings = splitString(input);
 
-        return getSum(splitStrings);
+        return sum(splitStrings);
     }
 
     private String[] splitString(String input) {
@@ -42,7 +42,7 @@ public class StringPlusCalculator {
 //        return matcher.group(SECOND_INDEX).split(delimiter);
     }
 
-    private static int getSum(String[] splitStrings) {
+    private static int sum(String[] splitStrings) {
         return Arrays.stream(splitStrings)
                 .mapToInt(StringPlusCalculator::StringChangeNumber)
                 .sum();
