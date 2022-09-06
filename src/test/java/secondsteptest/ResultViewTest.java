@@ -37,7 +37,7 @@ public class ResultViewTest {
     @Test
     @DisplayName("지난 주 당첨 번호가 6개를 넘어서면 예외가 발생한다")
     void throw_exception_list_week_winner_number_more_six() {
-        assertThatThrownBy(() -> resultView.lastWeekWinnerNumberValidation(new String[7]))
+        assertThatThrownBy(() -> resultView.lastWeekWinnerNumberValidation(new String[5]))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("지난 주 당첨 번호는 6개 입니다.");
     }
