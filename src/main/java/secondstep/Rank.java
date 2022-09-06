@@ -1,5 +1,9 @@
 package secondstep;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public enum Rank {
 
     FIRST(6, false, 2_000_000_000),
@@ -11,9 +15,32 @@ public enum Rank {
     private final int reward;
     private final boolean bonusMatched;
 
-    Rank(int matchCount, boolean bonusMatched, int reward ) {
+    private static final List<Rank> cachedLottoRank;
+
+    static {
+        cachedLottoRank = Arrays.stream(values())
+                .collect(Collectors.toList());
+    }
+
+    Rank(int matchCount, boolean bonusMatched, int reward) {
         this.matchCount = matchCount;
         this.reward = reward;
         this.bonusMatched = bonusMatched;
+    }
+
+    public static Rank lottoRank(int matchCount, boolean bonusMatched) {
+        Rank rank = getLottoRank(matchCount);
+        return rank;
+    }
+
+    private static Rank getLottoRank(int matchCount) {
+        return cachedLottoRank.stream()
+                .filter(rank -> rank.isMatched(matchCount))
+                .findFirst()
+                .orElse(NONE);
+    }
+
+    private boolean isMatched(int matchCount) {
+        return this.matchCount == matchCount;
     }
 }
