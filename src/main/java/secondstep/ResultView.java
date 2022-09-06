@@ -14,10 +14,7 @@ public class ResultView {
     public int[] resultViewStart() {
         String[] winnerNumbers = printLastWeekWinningNumber();
         bounsLottoNumber = bonusBallNumber();
-        if (bounsLottoNumber < 1 || bounsLottoNumber > 45) {
-            throw new IllegalArgumentException("로또의 보너스 넘버는 1에서 45 사이의 숫자입니다");
-        }
-        lastWeekWinnerNumberValidation(winnerNumbers);
+        verifyLottoNumbers(winnerNumbers);
         return getLastWeekWinnerNumbers(winnerNumbers);
     }
 
@@ -25,9 +22,15 @@ public class ResultView {
         System.out.println(BONUS_BALL_NUMBER_MESSAGE);
         return Integer.parseInt(SCANNER.nextLine());
     }
+    private void verifyLottoNumbers(String[] winnerNumbers) {
+        bonusLottoNumberValidation(bounsLottoNumber);
+        lastWeekWinnerNumberValidation(winnerNumbers);
+    }
 
-    public int getBounsLottoNumber() {
-        return bounsLottoNumber;
+    private void bonusLottoNumberValidation(int bounsLottoNumber) {
+        if (bounsLottoNumber < 1 || bounsLottoNumber > 45) {
+            throw new IllegalArgumentException("로또의 보너스 넘버는 1에서 45 사이의 숫자입니다");
+        }
     }
 
 
@@ -46,5 +49,9 @@ public class ResultView {
         return Arrays.stream(winnerNumbers)
                 .mapToInt(Integer::parseInt)
                 .toArray();
+    }
+
+    public int getBounsLottoNumber() {
+        return bounsLottoNumber;
     }
 }
