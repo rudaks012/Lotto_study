@@ -12,11 +12,11 @@ public class WinnerLotto {
     private static final int SECOND_REWARD = 1_500_000;
     private static final int THIRD_REWARD = 50_000;
     private static final int FORTH_REWARD = 5_000;
-    private int threeMatch;
-    private int fourMatch;
-    private int fiveMatch;
-    private int sixMatch;
-
+    private int fiveRank;
+    private int fourRank;
+    private int thirdRank;
+    private int secondRank;
+    private int oneRank;
     private int amount;
 
     public void winnerLottoGame() {
@@ -25,18 +25,18 @@ public class WinnerLotto {
 
         amount = inputView.getAmount();
         List<List<Integer>> userLottoNumbers = inputView.lottoGameStart(amount);
-
         int[] winnerLottoNumbers = resultView.resultViewStart();
-
-        lottoWinnerCount(userLottoNumbers, winnerLottoNumbers);
+        int bonusLottoNumber = resultView.getBounsLottoNumber();
+        lottoWinnerCount(userLottoNumbers, winnerLottoNumbers, bonusLottoNumber);
         printLottoStatistics();
     }
 
-    public void lottoWinnerCount(List<List<Integer>> userLottoNumbers, int[] winnerLottoNumbers) {
+    public void lottoWinnerCount(List<List<Integer>> userLottoNumbers, int[] winnerLottoNumbers, int bounsLottoNumber) {
         for (List<Integer> userLottoNumber : userLottoNumbers) {
+            boolean matchBounsLottoNumber = userLottoNumber.contains(bounsLottoNumber);
             int count = 0;
             count = getCount(winnerLottoNumbers, userLottoNumber, count);
-            prizeStatistics(count);
+            prizeStatistics(count, matchBounsLottoNumber);
         }
     }
 
@@ -50,30 +50,33 @@ public class WinnerLotto {
         return count;
     }
 
-    private void prizeStatistics(int count) {
-        if (count == LOTTO_NUMBER_THREE_MATCH) {
-            threeMatch++;
-        } else if (count == LOTTO_NUMBER_FOUR_MATCH) {
-            fourMatch++;
+    private void prizeStatistics(int count, boolean bonusMathch) {
+        if (count == LOTTO_NUMBER_THREE_MATCH && !bonusMathch) {
+            fiveRank++;
+        } else if (count == LOTTO_NUMBER_FOUR_MATCH && !bonusMathch) {
+            fourRank++;
+        } else if (count == LOTTO_NUMBER_FIVE_MATCH && !bonusMathch) {
+            thirdRank++;
         } else if (count == LOTTO_NUMBER_FIVE_MATCH) {
-            fiveMatch++;
-        } else if (count == LOTTO_NUMBER_SIX_MATCH) {
-            sixMatch++;
+            secondRank++;
+        } else if (count == LOTTO_NUMBER_SIX_MATCH && !bonusMathch) {
+            oneRank++;
         }
     }
 
     public void printLottoStatistics() {
         System.out.println("당첨 통계");
         System.out.println("------");
-        System.out.println("3개 일치 (5000원)-" + threeMatch + "개");
-        System.out.println("4개 일치 (50000원)-" + fourMatch + "개");
-        System.out.println("5개 일치 (1500000원)-" + fiveMatch + "개");
-        System.out.println("6개 일치 (200000000원)-" + sixMatch + "개");
+        System.out.println("3개 일치 (5000원)-" + fiveRank + "개");
+        System.out.println("4개 일치 (50000원)-" + fourRank + "개");
+        System.out.println("5개 일치 (1500000원)-" + thirdRank + "개");
+        System.out.println("5개 일치, 보너스볼 일치 (3000000원)-" + secondRank + "개");
+        System.out.println("6개 일치 (200000000원)-" + oneRank + "개");
         double result = getResult();
         System.out.println("총 수익률은 : " + result + "입니다.");
     }
 
     public double getResult() {
-        return ((sixMatch * FIRST_REWARD) + (fiveMatch * SECOND_REWARD) + (fourMatch * THIRD_REWARD) + (threeMatch * FORTH_REWARD)) / amount;
+        return ((oneRank * FIRST_REWARD) + (secondRank * SECOND_REWARD) + (fourRank * THIRD_REWARD) + (fiveRank * FORTH_REWARD)) / amount;
     }
 }

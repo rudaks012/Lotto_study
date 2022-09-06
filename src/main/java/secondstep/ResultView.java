@@ -9,21 +9,30 @@ public class ResultView {
     public static final String BONUS_BALL_NUMBER_MESSAGE = "보너스 볼을 입력해 주세요.";
     public static final Scanner SCANNER = new Scanner(System.in);
 
+    private int bounsLottoNumber;
+
     public int[] resultViewStart() {
         String[] winnerNumbers = printLastWeekWinningNumber();
-        int bonusBall = bonusBallNumber();
+        bounsLottoNumber = bonusBallNumber();
+        if (bounsLottoNumber < 1 || bounsLottoNumber > 45) {
+            throw new IllegalArgumentException("로또의 보너스 넘버는 1에서 45 사이의 숫자입니다");
+        }
         lastWeekWinnerNumberValidation(winnerNumbers);
         return getLastWeekWinnerNumbers(winnerNumbers);
     }
 
-    private static int bonusBallNumber() {
+    private int bonusBallNumber() {
         System.out.println(BONUS_BALL_NUMBER_MESSAGE);
-
         return Integer.parseInt(SCANNER.nextLine());
     }
 
+    public int getBounsLottoNumber() {
+        return bounsLottoNumber;
+    }
+
+
     public void lastWeekWinnerNumberValidation(String[] winnerNumbers) {
-        if (winnerNumbers.length < 7) {
+        if (winnerNumbers.length < 6) {
             throw new IllegalArgumentException(LAST_WEEK_WINNER_NUMBER_VALIDATION_MESSAGE);
         }
     }
