@@ -8,6 +8,7 @@ public class ResultView {
     public static final String LAST_WEEK_WINNER_NUMBER_VALIDATION_MESSAGE = "지난 주 당첨 번호는 6개 입니다.";
     public static final String BONUS_BALL_NUMBER_MESSAGE = "보너스 볼을 입력해 주세요.";
     public static final Scanner SCANNER = new Scanner(System.in);
+    public static final String LOTTO_BONUS_NUMBER_IS_ONE_BETWEEN_FORTY_FIVE = "로또의 보너스 넘버는 1에서 45 사이의 숫자입니다";
 
     private int bounsLottoNumber;
 
@@ -29,7 +30,7 @@ public class ResultView {
 
     private void bonusLottoNumberValidation(int bounsLottoNumber) {
         if (bounsLottoNumber < 1 || bounsLottoNumber > 45) {
-            throw new IllegalArgumentException("로또의 보너스 넘버는 1에서 45 사이의 숫자입니다");
+            throw new IllegalArgumentException(LOTTO_BONUS_NUMBER_IS_ONE_BETWEEN_FORTY_FIVE);
         }
     }
 
