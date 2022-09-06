@@ -20,7 +20,6 @@ public class LottoMakerTest {
         int excepted = 1;
 
         Assertions.assertThat(actual).isEqualTo(excepted);
-
     }
 
 }

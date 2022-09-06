@@ -1,2 +1,5 @@
-package secondstep;public class BuyAmount {
+package secondstep;
+
+public class BuyAmount {
+
 }

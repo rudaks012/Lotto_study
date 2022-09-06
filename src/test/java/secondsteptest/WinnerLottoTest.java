@@ -18,6 +18,7 @@ public class WinnerLottoTest {
         int[] winnerLottoNumbers = {1, 2, 3, 4, 5, 6};
         int count = 0;
         int winningNumberCount = 6;
+
         int actual = winnerLotto.getCount(winnerLottoNumbers, userLottoNumber, count);
 
         Assertions.assertThat(actual).isEqualTo(winningNumberCount);
