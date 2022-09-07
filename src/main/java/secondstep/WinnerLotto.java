@@ -26,7 +26,6 @@ public class WinnerLotto {
         int bonusLottoNumber = resultView.getBounsLottoNumber();
         lottoWinnerCount(userLottoNumbers, winnerLottoNumbers, bonusLottoNumber);
         resultView.printLotto(amount);
-
     }
 
     public void lottoWinnerCount(List<List<Integer>> userLottoNumbers, int[] winnerLottoNumbers, int bounsLottoNumber) {
