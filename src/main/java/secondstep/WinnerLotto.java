@@ -16,7 +16,7 @@ public class WinnerLotto {
     private static int fourRank;
     private static int fiveRank;
 
-    public void winnerLottoGame() {
+    public void winnerLottoGame() throws LottoNumberException {
         InputView inputView = new InputView();
         ResultView resultView = new ResultView();
         BuyAmount buyAmount = new BuyAmount();

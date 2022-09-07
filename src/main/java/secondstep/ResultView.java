@@ -16,7 +16,7 @@ public class ResultView {
 
     private int bounsLottoNumber;
 
-    public int[] resultViewStart() {
+    public int[] resultViewStart() throws LottoNumberException {
         InputView inputView = new InputView();
         String[] winnerNumbers = inputView.printLastWeekWinningNumber();
         bounsLottoNumber = inputView.bonusBallNumber();
@@ -24,18 +24,18 @@ public class ResultView {
         return getLastWeekWinnerNumbers(winnerNumbers);
     }
 
-    private void verifyLottoNumbers(String[] winnerNumbers) {
+    private void verifyLottoNumbers(String[] winnerNumbers) throws LottoNumberException {
         bonusLottoNumberValidation(bounsLottoNumber);
         lastWeekWinnerNumberValidation(winnerNumbers);
     }
 
-    public void bonusLottoNumberValidation(int bounsLottoNumber) {
+    public void bonusLottoNumberValidation(int bounsLottoNumber) throws LottoNumberException {
         if (bounsLottoNumber < BONUS_LOTTO_NUMBER_MIN || bounsLottoNumber > BONUS_LOTTO_NUMBER_MAX) {
             throw new LottoNumberException(bounsLottoNumber);
         }
     }
 
-    public void lastWeekWinnerNumberValidation(String[] winnerNumbers) {
+    public void lastWeekWinnerNumberValidation(String[] winnerNumbers) throws LottoNumberException {
         if (winnerNumbers.length < WINNER_LOTTO_NUMBERS_LIMIT) {
             throw new LottoNumberException();
         }
