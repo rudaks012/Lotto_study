@@ -6,6 +6,9 @@ import java.util.Scanner;
 public class InputView {
 
     public static final String PRINT_BUY_COUNT = "개를 구매 했습니다.";
+    public static final String LAST_WEEK_WINNER_MESSAGE = "지난 주 당첨 번호를 입력해 주세요.";
+    public static final String BONUS_BALL_NUMBER_MESSAGE = "보너스 볼을 입력해 주세요.";
+    public static final Scanner SCANNER = new Scanner(System.in);
 
     public List<List<Integer>> lottoGameStart(int amount) {
         LottoMaker lottoMaker = new LottoMaker();
@@ -25,5 +28,15 @@ public class InputView {
         for (List<Integer> printLottoNumbers : LottoMaker.lottoMaker) {
             System.out.println(printLottoNumbers);
         }
+    }
+
+    public String[] printLastWeekWinningNumber() {
+        System.out.println(LAST_WEEK_WINNER_MESSAGE);
+        return SCANNER.nextLine().split(",");
+    }
+
+    public int bonusBallNumber() {
+        System.out.println(BONUS_BALL_NUMBER_MESSAGE);
+        return Integer.parseInt(SCANNER.nextLine());
     }
 }
