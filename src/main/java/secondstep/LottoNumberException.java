@@ -8,7 +8,8 @@ public class LottoNumberException extends Exception {
     public LottoNumberException() {
         super(String.format(LAST_WEEK_WINNER_NUMBER_VALIDATION_MESSAGE));
     }
+
     public LottoNumberException(int bounsLottoNumber) {
-        super(String.format(LOTTO_BONUS_NUMBER_IS_ONE_BETWEEN_FORTY_FIVE,bounsLottoNumber));
+        super(String.format(LOTTO_BONUS_NUMBER_IS_ONE_BETWEEN_FORTY_FIVE, bounsLottoNumber));
     }
 }

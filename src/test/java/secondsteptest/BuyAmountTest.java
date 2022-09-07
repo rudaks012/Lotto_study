@@ -25,7 +25,7 @@ public class BuyAmountTest {
 
         assertThatThrownBy(() -> buyAmount.amountExceptionValidation(lottoBuyMoney))
                 .isInstanceOf(AmountException.class)
-                .hasMessage("입력값 "+ lottoBuyMoney+"원은 천원 보다 작습니다.");
+                .hasMessage("입력값 " + lottoBuyMoney + "원은 천원 보다 작습니다.");
     }
 
     @ParameterizedTest(name = "로또 구매비용은 천원 단위로 입력 해야 합니다. : [{index}] : [{arguments}]")

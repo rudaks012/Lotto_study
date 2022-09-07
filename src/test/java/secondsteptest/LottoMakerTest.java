@@ -28,7 +28,7 @@ public class LottoMakerTest {
     @DisplayName("로또 번호가 중복으로 안 만들어지는지 확인")
     void create_not_duplication_lotto_number() {
         List<Integer> actual = new ArrayList<>();
-        List<Integer> excepted =new ArrayList<>();
+        List<Integer> excepted = new ArrayList<>();
         for (int i = 0; i < 7; i++) {
             actual.add(i);
             excepted.add(i);
