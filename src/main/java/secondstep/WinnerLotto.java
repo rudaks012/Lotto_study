@@ -21,8 +21,10 @@ public class WinnerLotto {
         ResultView resultView = new ResultView();
 
         int amount = BuyAmount.getAmount();
+
         List<List<Integer>> userLottoNumbers = inputView.lottoGameStart(amount);
         int[] winnerLottoNumbers = resultView.resultViewStart();
+
         int bonusLottoNumber = resultView.getBounsLottoNumber();
         lottoWinnerCount(userLottoNumbers, winnerLottoNumbers, bonusLottoNumber);
         resultView.printLotto(amount);

@@ -35,5 +35,4 @@ public class LottoMaker {
             lottoNumberList.add(j);
         }
     }
-
 }

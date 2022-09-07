@@ -3,6 +3,7 @@ package secondstep;
 import java.util.Scanner;
 
 public class BuyAmount {
+
     public static final int ZERO = 0;
     public static final int REMAINDER_VALUE = 1000;
     public static final int LOTTO_ONE_PRICE_AMOUNT = 1000;
