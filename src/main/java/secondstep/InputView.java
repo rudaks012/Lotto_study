@@ -23,7 +23,6 @@ public class InputView {
 
     private void printLottoNumbers() {
         for (List<Integer> printLottoNumbers : LottoMaker.lottoMaker) {
-            System.out.println("printLottoNumbers = " + printLottoNumbers.size());
             System.out.println(printLottoNumbers);
         }
     }
