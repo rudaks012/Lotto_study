@@ -23,6 +23,7 @@ public class LottoMaker {
         inputView.printLottoNumbers();
         return lottoMaker;
     }
+
     private List<Integer> getLottoNumberList() {
         List<Integer> lottoNumberList = new ArrayList<>();
         addLottoNumber(lottoNumberList);
