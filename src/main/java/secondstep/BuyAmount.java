@@ -10,25 +10,25 @@ public class BuyAmount {
     public static final String PRINT_BUY_MESSAGE = "구입 금액을 입력해 주세요.";
     public static final Scanner SCANNER = new Scanner(System.in);
 
-    public static int getAmount() {
+    public int getAmount() {
         int amount = printBuyMessage();
         amountExceptionValidation(amount);
         amountExceptionMustThousand(amount);
         return amount;
     }
 
-    public static int printBuyMessage() {
+    private int printBuyMessage() {
         System.out.println(PRINT_BUY_MESSAGE);
         return SCANNER.nextInt();
     }
 
-    public static void amountExceptionValidation(int amount) {
+    public void amountExceptionValidation(int amount) {
         if (amount < LOTTO_ONE_PRICE_AMOUNT) {
             throw new AmountException(amount);
         }
     }
 
-    public static void amountExceptionMustThousand(int amount) {
+    public void amountExceptionMustThousand(int amount) {
         if (amount % REMAINDER_VALUE != ZERO) {
             throw new AmountException();
         }
@@ -38,7 +38,7 @@ public class BuyAmount {
         return amountToQuantity(amount);
     }
 
-    public static int amountToQuantity(int amount) {
+    public int amountToQuantity(int amount) {
         return amount / LOTTO_ONE_PRICE_AMOUNT;
     }
 }

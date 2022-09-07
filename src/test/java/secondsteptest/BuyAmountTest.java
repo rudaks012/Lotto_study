@@ -12,6 +12,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class BuyAmountTest {
 
+    private BuyAmount buyAmount = new BuyAmount();
+
     @ParameterizedTest(name = "로또 구매비용이 천원보다 작으면 예외가 발생한다. : [{index}] : [arguments]")
     @DisplayName("로또 구매비용이 천원보다 작으면 예외가 발생한다.")
     @ValueSource(ints = {
@@ -21,7 +23,7 @@ public class BuyAmountTest {
     })
     void throw_exception_lotto_buy_cost_less_thousand(int lottoBuyMoney) {
 
-        assertThatThrownBy(() -> BuyAmount.amountExceptionValidation(lottoBuyMoney))
+        assertThatThrownBy(() -> buyAmount.amountExceptionValidation(lottoBuyMoney))
                 .isInstanceOf(AmountException.class)
                 .hasMessage("입력값 "+ lottoBuyMoney+"원은 천원 보다 작습니다.");
     }
@@ -34,7 +36,7 @@ public class BuyAmountTest {
             4400
     })
     void you_must_enter_in_thousands_of_won(int lottoBuyMoney) {
-        assertThatThrownBy(() -> BuyAmount.amountExceptionMustThousand(lottoBuyMoney))
+        assertThatThrownBy(() -> buyAmount.amountExceptionMustThousand(lottoBuyMoney))
                 .isInstanceOf(AmountException.class)
                 .hasMessageContaining("천원 단위로 ");
     }
@@ -47,7 +49,7 @@ public class BuyAmountTest {
             "2000, 2",
     })
     void lotto_ticket_is_thousands_won(int lottoBuyMoney, int excepted) {
-        int actual = BuyAmount.amountToQuantity(lottoBuyMoney);
+        int actual = buyAmount.amountToQuantity(lottoBuyMoney);
 
         assertThat(actual).isEqualTo(excepted);
     }
