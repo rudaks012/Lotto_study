@@ -34,4 +34,12 @@ public class BuyAmount {
             throw new IllegalArgumentException(EXCEPTION_THOUSAND_INSERT);
         }
     }
+
+    public int getTotalBuyQuantity(int amount) {
+        return amountToQuantity(amount);
+    }
+
+    public static int amountToQuantity(int amount) {
+        return amount / LOTTO_ONE_PRICE_AMOUNT;
+    }
 }

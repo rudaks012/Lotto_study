@@ -7,13 +7,14 @@ public class InputView {
 
     public static final String PRINT_BUY_COUNT = "개를 구매 했습니다.";
 
-    public static final int LOTTO_ONE_PRICE_AMOUNT = 1000;
 
     public List<List<Integer>> lottoGameStart(int amount) {
         LottoMaker lottoMaker = new LottoMaker();
-        int totalBuyQuantity = getTotalBuyQuantity(amount);
-        printTotalBuyQuantity(totalBuyQuantity);
+        BuyAmount buyAmount = new BuyAmount();
 
+        int totalBuyQuantity = buyAmount.getTotalBuyQuantity(amount);
+        printTotalBuyQuantity(totalBuyQuantity);
+        printLottoNumbers();
         return lottoMaker.lottoNumberGeneration(totalBuyQuantity);
     }
 
@@ -21,12 +22,11 @@ public class InputView {
         System.out.println(totalBuyQuantity + PRINT_BUY_COUNT);
     }
 
-    public int getTotalBuyQuantity(int amount) {
-        return amountToQuantity(amount);
-    }
-
-    public int amountToQuantity(int amount) {
-        return amount / LOTTO_ONE_PRICE_AMOUNT;
+    private void printLottoNumbers() {
+        for (List<Integer> printLottoNumbers : LottoMaker.lottoMaker) {
+            System.out.println("printLottoNumbers = " + printLottoNumbers.size());
+            System.out.println(printLottoNumbers);
+        }
     }
 
 }

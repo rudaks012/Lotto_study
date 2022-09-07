@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class InputViewTest {
 
-    private InputView inputView = new InputView();
+    private final InputView inputView = new InputView();
 
     @ParameterizedTest(name = "로또 구매비용이 천원보다 작으면 예외가 발생한다. : [{index}] : [arguments]")
     @DisplayName("로또 구매비용이 천원보다 작으면 예외가 발생한다.")
@@ -49,7 +49,7 @@ public class InputViewTest {
             "2000, 2",
     })
     void lotto_ticket_is_thousands_won(int lottoBuyMoney, int excepted) {
-        int actual = inputView.amountToQuantity(lottoBuyMoney);
+        int actual = BuyAmount.amountToQuantity(lottoBuyMoney);
 
         assertThat(actual).isEqualTo(excepted);
     }
