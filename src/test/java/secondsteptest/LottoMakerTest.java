@@ -8,9 +8,6 @@ import secondstep.LottoMaker;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.BooleanSupplier;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class LottoMakerTest {
 

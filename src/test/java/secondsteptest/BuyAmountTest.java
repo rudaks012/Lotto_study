@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class BuyAmountTest {
 
-    private BuyAmount buyAmount = new BuyAmount();
+    private final BuyAmount buyAmount = new BuyAmount();
 
     @ParameterizedTest(name = "로또 구매비용이 천원보다 작으면 예외가 발생한다. : [{index}] : [arguments]")
     @DisplayName("로또 구매비용이 천원보다 작으면 예외가 발생한다.")
