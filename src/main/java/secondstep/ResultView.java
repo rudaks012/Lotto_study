@@ -14,8 +14,6 @@ public class ResultView {
     private static final int THIRD_REWARD = 1_500_000;
     private static final int FORTH_REWARD = 50_000;
     private static final int FIVE_REWARD = 5_000;
-    public static final String LAST_WEEK_WINNER_NUMBER_VALIDATION_MESSAGE = "지난 주 당첨 번호는 6개 입니다.";
-    public static final String LOTTO_BONUS_NUMBER_IS_ONE_BETWEEN_FORTY_FIVE = "로또의 보너스 넘버는 1에서 45 사이의 숫자입니다";
 
     private int bounsLottoNumber;
 
@@ -34,13 +32,13 @@ public class ResultView {
 
     public void bonusLottoNumberValidation(int bounsLottoNumber) {
         if (bounsLottoNumber < BONUS_LOTTO_NUMBER_MIN || bounsLottoNumber > BONUS_LOTTO_NUMBER_MAX) {
-            throw new IllegalArgumentException(LOTTO_BONUS_NUMBER_IS_ONE_BETWEEN_FORTY_FIVE);
+            throw new LottoNumberException(bounsLottoNumber);
         }
     }
 
     public void lastWeekWinnerNumberValidation(String[] winnerNumbers) {
         if (winnerNumbers.length < WINNER_LOTTO_NUMBERS_LIMIT) {
-            throw new IllegalArgumentException(LAST_WEEK_WINNER_NUMBER_VALIDATION_MESSAGE);
+            throw new LottoNumberException();
         }
     }
 

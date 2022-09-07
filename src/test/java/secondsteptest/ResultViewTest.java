@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import secondstep.LottoNumberException;
 import secondstep.ResultView;
 
 import java.util.stream.Stream;
@@ -38,7 +39,7 @@ public class ResultViewTest {
     @DisplayName("지난 주 당첨 번호가 6개를 넘어서면 예외가 발생한다")
     void throw_exception_list_week_winner_number_more_six() {
         assertThatThrownBy(() -> resultView.lastWeekWinnerNumberValidation(new String[5]))
-                .isInstanceOf(IllegalArgumentException.class)
+                .isInstanceOf(LottoNumberException.class)
                 .hasMessage("지난 주 당첨 번호는 6개 입니다.");
     }
 
@@ -49,7 +50,7 @@ public class ResultViewTest {
     })
     void throw_exception_bonus_number_is_one_between_forty_five(int bonusNumbers) {
         assertThatThrownBy(() -> resultView.bonusLottoNumberValidation(bonusNumbers))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("로또의 보너스 넘버는 1에서 45 사이의 숫자입니다");
+                .isInstanceOf(LottoNumberException.class)
+                .hasMessage("입력값: " + bonusNumbers + " 번호는 1에서 45 사이의 숫자가 아닙니다");
     }
 }

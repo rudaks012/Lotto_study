@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import secondstep.AmountException;
 import secondstep.BuyAmount;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,8 +22,8 @@ public class BuyAmountTest {
     void throw_exception_lotto_buy_cost_less_thousand(int lottoBuyMoney) {
 
         assertThatThrownBy(() -> BuyAmount.amountExceptionValidation(lottoBuyMoney))
-                .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("돈이 천원 보다 작습니다.");
+                .isInstanceOf(AmountException.class)
+                .hasMessage("입력값 "+ lottoBuyMoney+"원은 천원 보다 작습니다.");
     }
 
     @ParameterizedTest(name = "로또 구매비용은 천원 단위로 입력 해야 합니다. : [{index}] : [{arguments}]")
@@ -34,7 +35,7 @@ public class BuyAmountTest {
     })
     void you_must_enter_in_thousands_of_won(int lottoBuyMoney) {
         assertThatThrownBy(() -> BuyAmount.amountExceptionMustThousand(lottoBuyMoney))
-                .isInstanceOf(IllegalArgumentException.class)
+                .isInstanceOf(AmountException.class)
                 .hasMessageContaining("천원 단위로 ");
     }
 
