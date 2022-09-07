@@ -14,14 +14,17 @@ public class LottoMaker {
 
     public List<List<Integer>> lottoNumberGeneration(int totalBuyQuantity) {
         InputView inputView = new InputView();
+        createNotDuplicationLottoNumber(totalBuyQuantity);
+        inputView.printLottoNumbers();
+        return lottoMaker;
+    }
 
+    private void createNotDuplicationLottoNumber(int totalBuyQuantity) {
         for (int i = 1; i <= totalBuyQuantity; i++) {
             List<Integer> lottoNumberList = getLottoNumberList();
             Collections.shuffle(lottoNumberList);
             lottoMaker.add(lottoNumberList.subList(LOTTO_MIN_NUMBER, SIX_NUMBER_PER_SHEET_LOTTO));
         }
-        inputView.printLottoNumbers();
-        return lottoMaker;
     }
 
     private List<Integer> getLottoNumberList() {
