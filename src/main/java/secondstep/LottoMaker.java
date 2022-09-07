@@ -13,12 +13,14 @@ public class LottoMaker {
     public static final List<List<Integer>> lottoMaker = new ArrayList<>();
 
     public List<List<Integer>> lottoNumberGeneration(int totalBuyQuantity) {
+        InputView inputView = new InputView();
+
         for (int i = 1; i <= totalBuyQuantity; i++) {
             List<Integer> lottoNumberList = getLottoNumberList();
             Collections.shuffle(lottoNumberList);
             lottoMaker.add(lottoNumberList.subList(LOTTO_MIN_NUMBER, SIX_NUMBER_PER_SHEET_LOTTO));
         }
-        printLottoNumbers();
+        inputView.printLottoNumbers();
         return lottoMaker;
     }
     private List<Integer> getLottoNumberList() {
@@ -30,12 +32,6 @@ public class LottoMaker {
     private void addLottoNumber(List<Integer> lottoNumberList) {
         for (int j = 1; j <= LOTTO_MAX_NUMBER; j++) {
             lottoNumberList.add(j);
-        }
-    }
-
-    private void printLottoNumbers() {
-        for (List<Integer> printLottoNumbers : LottoMaker.lottoMaker) {
-            System.out.println(printLottoNumbers);
         }
     }
 

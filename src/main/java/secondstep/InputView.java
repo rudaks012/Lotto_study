@@ -21,10 +21,9 @@ public class InputView {
         System.out.println(totalBuyQuantity + PRINT_BUY_COUNT);
     }
 
-    private void printLottoNumbers() {
+    public void printLottoNumbers() {
         for (List<Integer> printLottoNumbers : LottoMaker.lottoMaker) {
             System.out.println(printLottoNumbers);
         }
     }
-
 }
