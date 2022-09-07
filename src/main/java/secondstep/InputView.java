@@ -7,7 +7,6 @@ public class InputView {
 
     public static final String PRINT_BUY_COUNT = "개를 구매 했습니다.";
 
-
     public List<List<Integer>> lottoGameStart(int amount) {
         LottoMaker lottoMaker = new LottoMaker();
         BuyAmount buyAmount = new BuyAmount();

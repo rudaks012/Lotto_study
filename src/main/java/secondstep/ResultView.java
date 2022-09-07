@@ -4,13 +4,14 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class ResultView {
+
+    public static final int BONUS_LOTTO_NUMBER_MIN = 1;
+    public static final int BONUS_LOTTO_NUMBER_MAX = 45;
+    public static final int WINNER_LOTTO_NUMBERS_LIMIT = 6;
     public static final String LAST_WEEK_WINNER_MESSAGE = "지난 주 당첨 번호를 입력해 주세요.";
     public static final String LAST_WEEK_WINNER_NUMBER_VALIDATION_MESSAGE = "지난 주 당첨 번호는 6개 입니다.";
     public static final String BONUS_BALL_NUMBER_MESSAGE = "보너스 볼을 입력해 주세요.";
     public static final String LOTTO_BONUS_NUMBER_IS_ONE_BETWEEN_FORTY_FIVE = "로또의 보너스 넘버는 1에서 45 사이의 숫자입니다";
-    public static final int BONUS_LOTTO_NUMBER_MIN = 1;
-    public static final int BONUS_LOTTO_NUMBER_MAX = 45;
-    public static final int WINNER_LOTTO_NUMBERS_LIMIT = 6;
     public static final Scanner SCANNER = new Scanner(System.in);
 
     private int bounsLottoNumber;
