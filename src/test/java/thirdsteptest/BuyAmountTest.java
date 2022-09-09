@@ -42,6 +42,7 @@ public class BuyAmountTest {
                 .isInstanceOf(AmountException.class)
                 .hasMessageContaining("천원 단위로 ");
     }
+
     @ParameterizedTest(name = "로또는 한장당 천원이다 : [{index}] : [{arguments}]")
     @DisplayName("로또는 한장당 천원이다")
     @CsvSource(value = {
@@ -51,6 +52,7 @@ public class BuyAmountTest {
     })
     void lotto_ticket_is_thousands_won(int lottoBuyMoney, int excepted) {
         BuyAmount buyAmount = new BuyAmount(lottoBuyMoney);
+
         int actual = buyAmount.getTotalBuyQuantity(lottoBuyMoney);
 
         assertThat(actual).isEqualTo(excepted);
