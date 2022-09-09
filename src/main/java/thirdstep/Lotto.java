@@ -15,8 +15,17 @@ public class Lotto {
         this.lottoNumbers = lottoNumbers;
     }
 
-    public boolean contains(LottoNumber lottoNumber) {
+    public boolean isContains(LottoNumber lottoNumber) {
         return lottoNumbers.contains(lottoNumber);
+    }
+
+    public void matchLotto(Lotto buyLotto) {
+      int count = 0;
+        for (LottoNumber lottoNumber : lottoNumbers) {
+            for (LottoNumber number : buyLotto.lottoNumbers) {
+
+            }
+        }
     }
 
 }

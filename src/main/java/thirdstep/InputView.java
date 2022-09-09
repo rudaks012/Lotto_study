@@ -6,6 +6,8 @@ public class InputView {
 
     private static final Scanner SCANNER = new Scanner(System.in);
     public static final String PRINT_BUY_MESSAGE = "구입 금액을 입력해 주세요.";
+    public static final String PRINT_MANUALLY_LOTTO_NUMBER_COUNT = "수동으로 구매할 로또 수를 입력해 주세요.";
+    public static final String PRINT_MANUALLY_LOTTO_NUMBERS = "수동으로 구매할 번호를 입력해 주세요.";
     public static final String PRINT_BUY_COUNT = "개를 구매 했습니다.";
     public static final String LAST_WEEK_WINNER_MESSAGE = "지난 주 당첨 번호를 입력해 주세요.";
     public static final String BONUS_BALL_NUMBER_MESSAGE = "보너스 볼을 입력해 주세요.";
@@ -17,6 +19,16 @@ public class InputView {
     public static int printBuyMessage() {
         println(PRINT_BUY_MESSAGE);
         return SCANNER.nextInt();
+    }
+
+    public static int printManuallyLottoNumberCountInsert() {
+        println(PRINT_MANUALLY_LOTTO_NUMBER_COUNT);
+        return SCANNER.nextInt();
+    }
+
+    public static String[] printManuallyLottoNumberInsert() {
+        println(PRINT_MANUALLY_LOTTO_NUMBERS);
+        return SCANNER.nextLine().split(",");
     }
 
     public static void printTotalBuyQuantity(int totalBuyQuantity) {
