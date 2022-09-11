@@ -1,15 +1,13 @@
 package weblotto;
 
-import java.util.List;
+import weblotto.strategy.Auto;
+import weblotto.strategy.Numbers;
 
 public class LottoTicket {
-    private List<Integer> numbers;
 
-    public LottoTicket(List<Integer> numbers) {
-        this.numbers = numbers;
-    }
+    private final Numbers lottoNumbers;
 
-    public List<Integer> getNumbers() {
-        return numbers;
+    public LottoTicket(Numbers lottoNumbers) {
+        this.lottoNumbers = new Auto();
     }
 }
