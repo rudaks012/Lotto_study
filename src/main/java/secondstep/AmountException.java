@@ -6,7 +6,7 @@ public class AmountException extends RuntimeException {
     public static final String EXCEPTION_THOUSAND_INSERT = "천원 단위로 입력 해야 합니다.";
 
     public AmountException() {
-        super(String.format(EXCEPTION_THOUSAND_INSERT));
+        super(EXCEPTION_THOUSAND_INSERT);
     }
 
     public AmountException(int amount) {
