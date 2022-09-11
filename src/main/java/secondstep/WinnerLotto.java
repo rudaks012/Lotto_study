@@ -49,16 +49,16 @@ public class WinnerLotto {
         return count;
     }
 
-    private void prizeStatistics(int count, boolean bonusMathch) {
-        if (count == LOTTO_NUMBER_THREE_MATCH && !bonusMathch) {
+    private void prizeStatistics(int count, boolean bonusMatch) {
+        if (count == LOTTO_NUMBER_THREE_MATCH && !bonusMatch) {
             fiveRank++;
-        } else if (count == LOTTO_NUMBER_FOUR_MATCH && !bonusMathch) {
+        } else if (count == LOTTO_NUMBER_FOUR_MATCH && !bonusMatch) {
             fourRank++;
-        } else if (count == LOTTO_NUMBER_FIVE_MATCH && !bonusMathch) {
+        } else if (count == LOTTO_NUMBER_FIVE_MATCH && !bonusMatch) {
             thirdRank++;
         } else if (count == LOTTO_NUMBER_FIVE_MATCH) {
             secondRank++;
-        } else if (count == LOTTO_NUMBER_SIX_MATCH && !bonusMathch) {
+        } else if (count == LOTTO_NUMBER_SIX_MATCH && !bonusMatch) {
             oneRank++;
         }
     }

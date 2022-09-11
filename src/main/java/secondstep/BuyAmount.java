@@ -35,10 +35,6 @@ public class BuyAmount {
     }
 
     public int getTotalBuyQuantity(int amount) {
-        return amountToQuantity(amount);
-    }
-
-    public int amountToQuantity(int amount) {
         return amount / LOTTO_ONE_PRICE_AMOUNT;
     }
 }

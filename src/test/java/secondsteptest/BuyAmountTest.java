@@ -49,7 +49,7 @@ public class BuyAmountTest {
             "2000, 2",
     })
     void lotto_ticket_is_thousands_won(int lottoBuyMoney, int excepted) {
-        int actual = buyAmount.amountToQuantity(lottoBuyMoney);
+        int actual = buyAmount.getTotalBuyQuantity(lottoBuyMoney);
 
         assertThat(actual).isEqualTo(excepted);
     }
