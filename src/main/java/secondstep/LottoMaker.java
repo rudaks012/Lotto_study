@@ -12,19 +12,23 @@ public class LottoMaker {
     public static final int SIX_NUMBER_PER_SHEET_LOTTO = 6;
     public static final List<List<Integer>> lottoMaker = new ArrayList<>();
 
-    public List<List<Integer>> lottoNumberGeneration(int totalBuyQuantity) {
+    public List<List<Integer>> lottoNumberGeneration(int autoLottoCount, List<Integer> parseIntManualNumber) {
         InputView inputView = new InputView();
-        createNotDuplicationLottoNumber(totalBuyQuantity);
+        createNotDuplicationLottoNumber(autoLottoCount , parseIntManualNumber);
         inputView.printLottoNumbers();
         return lottoMaker;
     }
 
-    private void createNotDuplicationLottoNumber(int totalBuyQuantity) {
-        for (int i = 1; i <= totalBuyQuantity; i++) {
+    private void createNotDuplicationLottoNumber(int autoLottoCount, List<Integer> parseIntManualNumber) {
+        for (Integer integer : parseIntManualNumber) {
+            lottoMaker.add(Collections.singletonList(integer));
+        }
+        for (int i = 1; i <= autoLottoCount; i++) {
             List<Integer> lottoNumberList = getLottoNumberList();
             Collections.shuffle(lottoNumberList);
             lottoMaker.add(lottoNumberList.subList(LOTTO_MIN_NUMBER, SIX_NUMBER_PER_SHEET_LOTTO));
         }
+
     }
 
     private List<Integer> getLottoNumberList() {
