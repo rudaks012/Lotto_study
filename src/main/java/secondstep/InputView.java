@@ -7,14 +7,14 @@ public class InputView {
 
     public static final String LAST_WEEK_WINNER_MESSAGE = "지난 주 당첨 번호를 입력해 주세요.";
     public static final String BONUS_BALL_NUMBER_MESSAGE = "보너스 볼을 입력해 주세요.";
+    public static final String PRINT_BUY_MESSAGE = "구입 금액을 입력해 주세요.";
 
     public List<List<Integer>> lottoGameStart(int amount) {
         LottoMaker lottoMaker = new LottoMaker();
-        BuyAmount buyAmount = new BuyAmount();
         ManualLottoBuy manualLottoBuy = new ManualLottoBuy();
 
         int manualBuyLottoCount = manualLottoBuy.manualLottoCount();
-        int autoLottoCount = (buyAmount.getTotalBuyQuantity(amount) - manualBuyLottoCount);
+        int autoLottoCount = (BuyAmount.getTotalBuyQuantity(amount) - manualBuyLottoCount);
 
         printTotalBuyQuantity(autoLottoCount, manualBuyLottoCount);
         manualLottoBuy.manualBuyLottoNumber();
@@ -42,5 +42,11 @@ public class InputView {
         System.out.println(BONUS_BALL_NUMBER_MESSAGE);
         Scanner scanner = new Scanner(System.in);
         return Integer.parseInt(scanner.nextLine());
+    }
+
+    public static int printBuyMessage() {
+        System.out.println(PRINT_BUY_MESSAGE);
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextInt();
     }
 }
