@@ -15,7 +15,7 @@ public class LottoMakerTest {
     @DisplayName("로또번호생성을 확인한다")
     void lotto_number_generation() {
         LottoMaker lottoMaker = new LottoMaker();
-        List<List<Integer>> lotto = lottoMaker.lottoNumberGeneration(1, null);
+        List<List<Integer>> lotto = lottoMaker.lottoNumberGeneration(1, 0);
 
         int actual = lotto.size();
 

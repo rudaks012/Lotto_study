@@ -14,22 +14,14 @@ public class InputView {
         LottoMaker lottoMaker = new LottoMaker();
         BuyAmount buyAmount = new BuyAmount();
         ManualLottoBuy manualLottoBuy = new ManualLottoBuy();
+
         int manualBuyLottoCount = manualLottoBuy.manualLottoCount();
         int autoLottoCount = (buyAmount.getTotalBuyQuantity(amount) - manualBuyLottoCount);
 
-        manualLottoBuy.manualBuyLottoNumber();
-
-        List<Integer> parseIntManualNumber = getParseIntManualNumbers(manualLottoBuy, manualBuyLottoCount);
         printTotalBuyQuantity(autoLottoCount, manualBuyLottoCount);
+        manualLottoBuy.manualBuyLottoNumber();
         printLottoNumbers();
-        return lottoMaker.lottoNumberGeneration(autoLottoCount, parseIntManualNumber);
-    }
-
-    private List<Integer> getParseIntManualNumbers(ManualLottoBuy manualLottoBuy, int manualBuyLottoCount) {
-        return manualLottoBuy.getManualNumbers(manualBuyLottoCount)
-                .stream()
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
+        return lottoMaker.lottoNumberGeneration(autoLottoCount, manualBuyLottoCount);
     }
 
     public void printTotalBuyQuantity(int autoLottoCount, int manualBuyLottoCount) {
