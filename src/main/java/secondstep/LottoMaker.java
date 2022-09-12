@@ -21,7 +21,10 @@ public class LottoMaker {
 
     private void createNotDuplicationLottoNumber(int autoLottoCount, int manualBuyLottoCount) {
         ManualLottoBuy manualLottoBuy = new ManualLottoBuy();
+        lottoMakerListAdd(autoLottoCount, manualBuyLottoCount, manualLottoBuy);
+    }
 
+    private void lottoMakerListAdd(int autoLottoCount, int manualBuyLottoCount, ManualLottoBuy manualLottoBuy) {
         for (int i = 0; i < manualBuyLottoCount; i++) {
             lottoMaker.add(manualLottoBuy.getManualNumbers());
         }
@@ -30,7 +33,6 @@ public class LottoMaker {
             Collections.shuffle(lottoNumberList);
             lottoMaker.add(lottoNumberList.subList(LOTTO_MIN_NUMBER, SIX_NUMBER_PER_SHEET_LOTTO));
         }
-
     }
 
     private List<Integer> getLottoNumberList() {
