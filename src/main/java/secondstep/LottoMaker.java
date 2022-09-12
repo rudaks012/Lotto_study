@@ -1,8 +1,6 @@
 package secondstep;
 
 
-import secondstep.view.InputView;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -25,13 +23,14 @@ public class LottoMaker {
         ManualLottoBuy manualLottoBuy = new ManualLottoBuy();
 
         for (int i = 0; i <manualBuyLottoCount ; i++) {
-            lottoMaker.add(manualLottoBuy.getManualNumbers());
+            lottoMaker.add(manualLottoBuy.getManualNumbers(manualBuyLottoCount));
         }
         for (int i = 1; i <= autoLottoCount; i++) {
             List<Integer> lottoNumberList = getLottoNumberList();
             Collections.shuffle(lottoNumberList);
             lottoMaker.add(lottoNumberList.subList(LOTTO_MIN_NUMBER, SIX_NUMBER_PER_SHEET_LOTTO));
         }
+
     }
 
     private List<Integer> getLottoNumberList() {

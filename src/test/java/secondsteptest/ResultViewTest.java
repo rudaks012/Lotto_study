@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import secondstep.LottoNumberException;
-import secondstep.view.ResultView;
+import secondstep.ResultView;
 
 import java.util.stream.Stream;
 
