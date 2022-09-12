@@ -6,7 +6,7 @@ public class LottoNumberException extends RuntimeException{
     public static final String LAST_WEEK_WINNER_NUMBER_VALIDATION_MESSAGE = "지난 주 당첨 번호는 6개 입니다.";
 
     public LottoNumberException() {
-        super(String.format(LAST_WEEK_WINNER_NUMBER_VALIDATION_MESSAGE));
+        super(LAST_WEEK_WINNER_NUMBER_VALIDATION_MESSAGE);
     }
 
     public LottoNumberException(int bounsLottoNumber) {
