@@ -17,17 +17,12 @@ public class ManualLottoBuy {
         System.out.println(MANUAL_BUY_LOTTO_NUMBER);
     }
 
-    public List<Integer> getManualNumbers(int manualBuyLottoCount) {
-        List<Integer> intlist = new ArrayList<>();
-//        for (int i = 0; i < manualBuyLottoCount; i++) {
+    public List<Integer> getManualNumbers() {
         int[] getStringManualNumber = getStringsNumbers();
-        intlist = Arrays.stream(getStringManualNumber)
+
+        return Arrays.stream(getStringManualNumber)
                 .boxed()
                 .collect(Collectors.toList());
-//            intlist.subList(0, 6);
-//        }
-
-        return intlist;
     }
 
     private int[] getStringsNumbers() {
