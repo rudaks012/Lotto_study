@@ -48,7 +48,6 @@ public class WinnerLotto {
         return count;
     }
 
-
     private void prizeStatistics(int count, boolean bonusMatch) {
         if (count == LOTTO_NUMBER_THREE_MATCH && !bonusMatch) {
             fiveRank++;
