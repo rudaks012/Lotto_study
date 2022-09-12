@@ -19,9 +19,8 @@ public class WinnerLotto {
     public void winnerLottoGame() throws LottoNumberException {
         InputView inputView = new InputView();
         ResultView resultView = new ResultView();
-        BuyAmount buyAmount = new BuyAmount();
 
-        int amount = buyAmount.getAmount();
+        int amount = BuyAmount.getAmount();
 
         List<List<Integer>> userLottoNumbers = inputView.lottoGameStart(amount);
         int[] winnerLottoNumbers = resultView.resultViewStart();
