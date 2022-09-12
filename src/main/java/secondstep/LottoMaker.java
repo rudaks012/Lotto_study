@@ -22,7 +22,7 @@ public class LottoMaker {
     private void createNotDuplicationLottoNumber(int autoLottoCount, int manualBuyLottoCount) {
         ManualLottoBuy manualLottoBuy = new ManualLottoBuy();
 
-        for (int i = 0; i <manualBuyLottoCount ; i++) {
+        for (int i = 0; i < manualBuyLottoCount; i++) {
             lottoMaker.add(manualLottoBuy.getManualNumbers(manualBuyLottoCount));
         }
         for (int i = 1; i <= autoLottoCount; i++) {
