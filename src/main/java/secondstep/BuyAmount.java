@@ -1,7 +1,5 @@
 package secondstep;
 
-import java.util.Scanner;
-
 public class BuyAmount {
 
     public static final int ZERO = 0;
