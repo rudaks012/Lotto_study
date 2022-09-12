@@ -56,7 +56,6 @@ public class InputView {
         return scanner.nextLine().split(",");
     }
 
-
     public int manualLottoCount() {
         System.out.println(MANUAL_BUY_LOTTO_COUNT);
         Scanner scanner = new Scanner(System.in);

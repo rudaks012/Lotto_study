@@ -30,7 +30,6 @@ public class LottoMaker {
             Collections.shuffle(lottoNumberList);
             lottoMaker.add(lottoNumberList.subList(LOTTO_MIN_NUMBER, SIX_NUMBER_PER_SHEET_LOTTO));
         }
-
     }
 
     private List<Integer> getLottoNumberList() {

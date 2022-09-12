@@ -20,6 +20,4 @@ public class ManualLottoBuy {
                 .mapToInt(Integer::parseInt)
                 .toArray();
     }
-
-
 }
