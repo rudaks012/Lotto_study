@@ -8,7 +8,7 @@ import java.util.List;
 public class LottoMaker {
 
     public static final int LOTTO_MAX_NUMBER = 45;
-    public static final int LOTTO_MIN_NUMBER = 0;
+    public static final int LIST_SUBLIST_FIRST_NUMBER = 0;
     public static final int SIX_NUMBER_PER_SHEET_LOTTO = 6;
     public static final List<List<Integer>> lottoMaker = new ArrayList<>();
 
@@ -31,7 +31,7 @@ public class LottoMaker {
         for (int i = 1; i <= autoLottoCount; i++) {
             List<Integer> lottoNumberList = getLottoNumberList();
             Collections.shuffle(lottoNumberList);
-            lottoMaker.add(lottoNumberList.subList(LOTTO_MIN_NUMBER, SIX_NUMBER_PER_SHEET_LOTTO));
+            lottoMaker.add(lottoNumberList.subList(LIST_SUBLIST_FIRST_NUMBER, SIX_NUMBER_PER_SHEET_LOTTO));
         }
     }
 

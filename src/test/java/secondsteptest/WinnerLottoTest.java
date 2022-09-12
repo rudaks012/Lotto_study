@@ -3,7 +3,6 @@ package secondsteptest;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import secondstep.LottoNumber;
 import secondstep.WinnerLotto;
 
 import java.util.Arrays;
