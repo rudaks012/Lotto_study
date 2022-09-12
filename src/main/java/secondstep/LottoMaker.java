@@ -23,7 +23,7 @@ public class LottoMaker {
         ManualLottoBuy manualLottoBuy = new ManualLottoBuy();
 
         for (int i = 0; i <manualBuyLottoCount ; i++) {
-            lottoMaker.add(manualLottoBuy.getManualNumbers(manualBuyLottoCount));
+            lottoMaker.add(manualLottoBuy.getManualNumbers());
         }
         for (int i = 1; i <= autoLottoCount; i++) {
             List<Integer> lottoNumberList = getLottoNumberList();
