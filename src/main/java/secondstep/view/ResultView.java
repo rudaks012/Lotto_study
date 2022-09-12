@@ -1,4 +1,8 @@
-package secondstep;
+package secondstep.view;
+
+import secondstep.LottoNumberException;
+import secondstep.WinnerLotto;
+import secondstep.view.InputView;
 
 import java.util.Arrays;
 import java.util.Map;

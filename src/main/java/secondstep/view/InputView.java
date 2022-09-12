@@ -1,4 +1,7 @@
-package secondstep;
+package secondstep.view;
+
+import secondstep.BuyAmount;
+import secondstep.LottoMaker;
 
 import java.util.List;
 import java.util.Scanner;
@@ -10,7 +13,8 @@ public class InputView {
     public static final String BONUS_BALL_NUMBER_MESSAGE = "보너스 볼을 입력해 주세요.";
     public static final String MANUAL_BUY_LOTTO_NUMBER = "수동으로 구매할 번호를 입력해 주세요.";
     public static final String MANUAL_BUY_LOTTO_COUNT = "수동으로 구매할 로또 수를 입력해 주세요.";
-
+    public static final String PRINT_BUY_MESSAGE = "구입 금액을 입력해 주세요.";
+    public static final Scanner SCANNER = new Scanner(System.in);
 
     public List<List<Integer>> lottoGameStart(int amount) {
         LottoMaker lottoMaker = new LottoMaker();
@@ -23,6 +27,11 @@ public class InputView {
         manualBuyLottoNumber();
         printLottoNumbers();
         return lottoMaker.lottoNumberGeneration(autoLottoCount, manualBuyLottoCount);
+    }
+
+    int printBuyMessage() {
+        System.out.println(PRINT_BUY_MESSAGE);
+        return SCANNER.nextInt();
     }
 
     public void printTotalBuyQuantity(int autoLottoCount, int manualBuyLottoCount) {
