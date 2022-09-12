@@ -40,7 +40,25 @@ public class WinnerLotto {
         }
     }
 
+    public void lottoWinnerCount2(List<LottoNumber> userLottoNumbers, int[] winnerLottoNumbers, int bounsLottoNumber) {
+        for (LottoNumber userLottoNumber : userLottoNumbers) {
+            boolean matchBounsLottoNumber = userLottoNumber.contains(bounsLottoNumber);
+            int count = 0;
+            count = getCount2(winnerLottoNumbers, userLottoNumber, count);
+            prizeStatistics(count, matchBounsLottoNumber);
+        }
+    }
+
     public int getCount(int[] winnerLottoNumbers, List<Integer> userLottoNumber, int count) {
+        for (int i = 0; i < 6; i++) {
+            if (userLottoNumber.contains(winnerLottoNumbers[i])) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int getCount2(int[] winnerLottoNumbers, LottoNumber userLottoNumber, int count) {
         for (int i = 0; i < 6; i++) {
             if (userLottoNumber.contains(winnerLottoNumbers[i])) {
                 count++;
