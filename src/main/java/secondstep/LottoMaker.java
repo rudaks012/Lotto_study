@@ -8,22 +8,30 @@ import java.util.List;
 public class LottoMaker {
 
     public static final int LOTTO_MAX_NUMBER = 45;
-    public static final int LOTTO_MIN_NUMBER = 0;
+    public static final int LIST_SUBLIST_FIRST_NUMBER = 0;
     public static final int SIX_NUMBER_PER_SHEET_LOTTO = 6;
     public static final List<List<Integer>> lottoMaker = new ArrayList<>();
 
-    public List<List<Integer>> lottoNumberGeneration(int totalBuyQuantity) {
+    public List<List<Integer>> lottoNumberGeneration(int autoLottoCount, int manualBuyLottoCount) {
         InputView inputView = new InputView();
-        createNotDuplicationLottoNumber(totalBuyQuantity);
+        createNotDuplicationLottoNumber(autoLottoCount, manualBuyLottoCount);
         inputView.printLottoNumbers();
         return lottoMaker;
     }
 
-    private void createNotDuplicationLottoNumber(int totalBuyQuantity) {
-        for (int i = 1; i <= totalBuyQuantity; i++) {
+    private void createNotDuplicationLottoNumber(int autoLottoCount, int manualBuyLottoCount) {
+        ManualLottoBuy manualLottoBuy = new ManualLottoBuy();
+        lottoMakerListAdd(autoLottoCount, manualBuyLottoCount, manualLottoBuy);
+    }
+
+    private void lottoMakerListAdd(int autoLottoCount, int manualBuyLottoCount, ManualLottoBuy manualLottoBuy) {
+        for (int i = 0; i < manualBuyLottoCount; i++) {
+            lottoMaker.add(manualLottoBuy.getManualNumbers());
+        }
+        for (int i = 1; i <= autoLottoCount; i++) {
             List<Integer> lottoNumberList = getLottoNumberList();
             Collections.shuffle(lottoNumberList);
-            lottoMaker.add(lottoNumberList.subList(LOTTO_MIN_NUMBER, SIX_NUMBER_PER_SHEET_LOTTO));
+            lottoMaker.add(lottoNumberList.subList(LIST_SUBLIST_FIRST_NUMBER, SIX_NUMBER_PER_SHEET_LOTTO));
         }
     }
 
